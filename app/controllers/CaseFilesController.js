@@ -22,7 +22,9 @@ export class CaseFilesController {
   }
 
   drawActiveCaseFile() {
-    console.log('drawing active!');
+    const caseFile = AppState.activeCaseFile
+    console.log('drawing active!', caseFile);
+    setHTML('case-file-details', caseFile.detailsHTMLTemplate)
   }
 
   setActiveCaseFile(caseFileId) {

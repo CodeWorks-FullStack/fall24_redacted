@@ -4,6 +4,7 @@ import { createObservableProxy } from './utils/ObservableProxy.js'
 
 class ObservableAppState extends EventEmitter {
 
+  /**@type {CaseFile[]}*/
   caseFiles = [
     new CaseFile({
       body: 'Saw a nasty lil doggy running on the side of the road with goat fur all over it',
@@ -21,7 +22,7 @@ class ObservableAppState extends EventEmitter {
       agency: 'highway patrol'
     }),
   ]
-
+  /**@type {CaseFile}*/
   activeCaseFile = null
 }
 
