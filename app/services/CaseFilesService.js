@@ -1,9 +1,18 @@
 import { AppState } from "../AppState.js";
 
 class CaseFilesService {
-  unlockCaseFile() {
+  toggleLock() {
     const caseFile = AppState.activeCaseFile
-    caseFile.locked = false
+
+    // if (caseFile.locked) {
+    //   caseFile.locked = false
+    // }
+    // else {
+    //   caseFile.locked = true
+    // }
+
+    caseFile.locked = !caseFile.locked
+
     console.log('the case file is locked?', caseFile.locked);
     AppState.emit('activeCaseFile') // this will manually trigger listener for activeCaseFile
   }

@@ -32,7 +32,7 @@ export class CaseFile {
       <p>Last accessed on <time>${this.lastAccessedFullDateAndTime}</time></p>
       <p>${this.body}</p>
       <div class="text-end">
-        <button onclick="app.CaseFilesController.unlockCaseFile()">
+        <button onclick="app.CaseFilesController.toggleLock()">
           ${this.locked ? 'Unlock' : 'Lock'}
         </button>
       </div>
