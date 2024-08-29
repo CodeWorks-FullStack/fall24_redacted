@@ -28,7 +28,7 @@ export class CaseFile {
   get detailsHTMLTemplate() {
     return `
     <div class="p-3 border border-1 border-dark">
-      <p class="fs-1" title="Full case #${this.id}">case #${this.caseFileNumber} ${this.agencyIcon}</p>
+      <p class="fs-1" title="Full case #${this.id}">case #${this.caseFileNumber} ${this.agencyIcon} ${this.classification}</p>
       <p>Last accessed on <time>${this.lastAccessedFullDateAndTime}</time></p>
       ${this.bodyElement}
       <div class="text-end">

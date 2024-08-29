@@ -3,6 +3,12 @@ import { CaseFile } from "../models/CaseFile.js";
 import { loadState, saveState } from "../utils/Store.js";
 
 class CaseFilesService {
+  createCaseFile(rawCaseFileData) {
+    const caseFiles = AppState.caseFiles
+    const newCaseFile = new CaseFile(rawCaseFileData)
+    caseFiles.push(newCaseFile)
+  }
+
   updateCaseFile(updatedBody) {
     const caseFile = AppState.activeCaseFile
 

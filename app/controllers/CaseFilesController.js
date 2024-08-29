@@ -1,5 +1,6 @@
 import { AppState } from "../AppState.js";
 import { caseFilesService } from "../services/CaseFilesService.js";
+import { getFormData } from "../utils/FormHandler.js";
 import { setHTML } from "../utils/Writer.js";
 
 export class CaseFilesController {
@@ -44,5 +45,14 @@ export class CaseFilesController {
     const updatedBody = textareaElem.value
     console.log('text from textarea', updatedBody);
     caseFilesService.updateCaseFile(updatedBody)
+  }
+
+  createCaseFile() {
+    event.preventDefault() // don't refresh the page!
+    console.log('creating case file!');
+    const caseFileForm = event.target
+    const caseFileFormData = getFormData(caseFileForm)
+    console.log('data from form', caseFileFormData);
+    caseFilesService.createCaseFile(caseFileFormData)
   }
 }
