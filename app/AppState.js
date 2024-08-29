@@ -8,17 +8,17 @@ class ObservableAppState extends EventEmitter {
     new CaseFile({
       body: 'Saw a nasty lil doggy running on the side of the road with goat fur all over it',
       classification: 'secret',
-      agency: 'Fish and Game'
+      agency: 'fish and game'
     }),
     new CaseFile({
       body: 'Saw a flying saucer over the mountains in pocatello. Little grey men were probably on board.',
       classification: 'top-secret',
-      agency: 'Air Force'
+      agency: 'air force'
     }),
     new CaseFile({
       body: 'Encountered a lizard in the desert.',
       classification: 'public',
-      agency: 'Highway Patrol'
+      agency: 'highway patrol'
     }),
   ]
 }
