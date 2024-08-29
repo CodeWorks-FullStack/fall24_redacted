@@ -1,4 +1,5 @@
 import { AppState } from "../AppState.js";
+import { caseFilesService } from "../services/CaseFilesService.js";
 import { setHTML } from "../utils/Writer.js";
 
 export class CaseFilesController {
@@ -19,5 +20,6 @@ export class CaseFilesController {
 
   setActiveCaseFile(caseFileId) {
     console.log(`Setting active case file with the id of ${caseFileId}!`)
+    caseFilesService.setActiveCaseFile(caseFileId)
   }
 }
