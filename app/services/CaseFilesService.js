@@ -7,6 +7,8 @@ class CaseFilesService {
     const caseFiles = AppState.caseFiles
     const newCaseFile = new CaseFile(rawCaseFileData)
     caseFiles.push(newCaseFile)
+
+    this.saveCaseFiles()
   }
 
   updateCaseFile(updatedBody) {

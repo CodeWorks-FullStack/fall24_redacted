@@ -7,7 +7,7 @@ export class CaseFile {
   constructor(data) {
     this.id = generateId()
     this.lastAccessedAt = data.lastAccessedAt == undefined ? new Date() : new Date(data.lastAccessedAt)
-    this.body = data.body
+    this.body = data.body || '' // defaults to '' if body is falsy (undefined)
     this.classification = data.classification
     this.agency = data.agency
 
@@ -67,7 +67,15 @@ export class CaseFile {
 
   get bodyElement() {
     if (this.locked) {
-      return `<p>${this.body}</p>`
+      // NOTE this might not be super helpful for your checkpoint
+      const redactedWords = ['alien', 'saucer', 'doggy', 'lizard', 'grey', 'goat']
+      const redactedBody = this.body.split(' ').map(word => {
+        if (redactedWords.includes(word.toLowerCase())) {
+          return '[REDACTED]'
+        }
+        return word
+      }).join(' ')
+      return `<p>${redactedBody}</p>`
     }
     else {
       // NOTE onblur will fire off whenever this element is no longer focused (the user clicks outside of the textarea)
