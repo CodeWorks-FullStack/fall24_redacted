@@ -21,6 +21,8 @@ class ObservableAppState extends EventEmitter {
       agency: 'highway patrol'
     }),
   ]
+
+  activeCaseFile = null
 }
 
 export const AppState = createObservableProxy(new ObservableAppState())
