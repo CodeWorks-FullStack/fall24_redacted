@@ -1,4 +1,6 @@
 import { AppState } from "../AppState.js";
+import { CaseFile } from "../models/CaseFile.js";
+import { loadState, saveState } from "../utils/Store.js";
 
 class CaseFilesService {
   updateCaseFile(updatedBody) {
@@ -8,6 +10,7 @@ class CaseFilesService {
     caseFile.locked = true
 
     AppState.emit('activeCaseFile') // this will manually trigger listener for activeCaseFile
+    this.saveCaseFiles()
   }
   toggleLock() {
     const caseFile = AppState.activeCaseFile
@@ -30,6 +33,15 @@ class CaseFilesService {
     const foundCaseFile = caseFiles.find(caseFile => caseFile.id == caseFileId)
     console.log('found case file!', foundCaseFile);
     AppState.activeCaseFile = foundCaseFile
+  }
+
+  saveCaseFiles() {
+    saveState('caseFiles', AppState.caseFiles)
+  }
+
+  loadCaseFiles() {
+    const caseFilesFromLocalStorage = loadState('caseFiles', [CaseFile])
+    AppState.caseFiles = caseFilesFromLocalStorage
   }
 }
 

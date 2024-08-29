@@ -5,10 +5,10 @@ import { setHTML } from "../utils/Writer.js";
 export class CaseFilesController {
   constructor() {
     console.log('Case Files controller is working');
+    AppState.on('caseFiles', this.drawCaseFiles)
     AppState.on('activeCaseFile', this.drawActiveCaseFile)
 
-
-    this.drawCaseFiles()
+    caseFilesService.loadCaseFiles()
   }
 
   drawCaseFiles() {
