@@ -14,7 +14,7 @@ export class CaseFile {
 
   get listHTMLTemplate() {
     return `
-    <div class="fs-3 selectable px-1" role="button">
+    <div onclick="app.CaseFilesController.setActiveCaseFile()" class="fs-3 selectable px-1" role="button">
       <p>case #${this.caseFileNumber}</p>
       <p> ${this.agencyIcon} | <time title="Last Accessed on ${this.lastAccessedFullDateAndTime}">${this.lastAccessedDate}</time>
       </p>
