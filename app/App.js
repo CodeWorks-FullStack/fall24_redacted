@@ -1,9 +1,10 @@
+import { CaseFilesController } from './controllers/CaseFilesController.js';
 import { router } from './router-config.js';
 const USE_ROUTER = false
 
 class App {
 
-
+  CaseFilesController = new CaseFilesController()
   constructor() {
     if (USE_ROUTER) {
       this.router = router
