@@ -14,16 +14,29 @@ export class CaseFile {
 
   get listHTMLTemplate() {
     return `
-    <div class="fs-3 selectable" role="button">
+    <div class="fs-3 selectable px-1" role="button">
       <p>case #${this.caseFileNumber}</p>
-      <p> ${this.agencyIcon} | <time title="Last Accessed on ${this.lastAccessedFullDateAndTime}">${this.lastAccessedDate}</time></p>
+      <p> ${this.agencyIcon} | <time title="Last Accessed on ${this.lastAccessedFullDateAndTime}">${this.lastAccessedDate}</time>
+      </p>
       <hr>
     </div>
     `
   }
 
+  get detailsHTMLTemplate() {
+    return `
+    <div class="p-3 border border-1 border-dark">
+      <p class="fs-1">case #${this.caseFileNumber} <i class="mdi mdi-fish"></i></p>
+      <p>Last accessed on 8/29/2024 10:35:00</p>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit aliquid similique odio. Quis vitae non
+        nobis, animi maiores veniam minus maxime aspernatur numquam, laboriosam temporibus modi, sed velit ab?
+        Exercitationem soluta similique quisquam amet maiores aliquid debitis rem voluptatum consectetur.</p>
+    </div>
+    `
+  }
+
   get caseFileNumber() {
-    return this.id.substring(this.id.length - 4)
+    return this.id.substring(this.id.length - 4) // the last 4 digits of the id
   }
 
   get agencyIcon() {
