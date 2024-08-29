@@ -11,4 +11,14 @@ export class CaseFile {
     this.classification = data.classification
     this.agency = data.agency
   }
+
+  get listHTMLTemplate() {
+    return `
+    <div class="fs-3 selectable" role="button">
+      <p>case #34eb</p>
+      <p> <i class="mdi mdi-fish" title="fish and game"></i> | <time title="Last Accessed">8/29/2024</time></p>
+      <hr>
+    </div>
+    `
+  }
 }
