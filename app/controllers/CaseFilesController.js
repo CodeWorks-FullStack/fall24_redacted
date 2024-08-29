@@ -31,4 +31,8 @@ export class CaseFilesController {
     console.log(`Setting active case file with the id of ${caseFileId}!`)
     caseFilesService.setActiveCaseFile(caseFileId)
   }
+
+  unlockCaseFile() {
+    caseFilesService.unlockCaseFile()
+  }
 }

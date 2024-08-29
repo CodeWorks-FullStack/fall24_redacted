@@ -10,6 +10,8 @@ export class CaseFile {
     this.body = data.body
     this.classification = data.classification
     this.agency = data.agency
+
+    this.locked = true
   }
 
   get listHTMLTemplate() {
@@ -24,11 +26,16 @@ export class CaseFile {
   }
 
   get detailsHTMLTemplate() {
-    return `
+    return /*html*/`
     <div class="p-3 border border-1 border-dark">
       <p class="fs-1" title="Full case #${this.id}">case #${this.caseFileNumber} ${this.agencyIcon}</p>
       <p>Last accessed on <time>${this.lastAccessedFullDateAndTime}</time></p>
       <p>${this.body}</p>
+      <div class="text-end">
+        <button onclick="app.CaseFilesController.unlockCaseFile()">
+          ${this.locked ? 'Unlock' : 'Lock'}
+        </button>
+      </div>
     </div>
     `
   }
