@@ -17,7 +17,7 @@ export class CaseFilesController {
     setHTML('case-files-list', caseFileHTML)
   }
 
-  setActiveCaseFile() {
-    console.log('Setting active case file!')
+  setActiveCaseFile(caseFileId) {
+    console.log(`Setting active case file with the id of ${caseFileId}!`)
   }
 }
