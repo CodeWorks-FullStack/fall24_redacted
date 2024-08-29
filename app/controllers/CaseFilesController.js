@@ -35,4 +35,13 @@ export class CaseFilesController {
   toggleLock() {
     caseFilesService.toggleLock()
   }
+
+  updateCaseFile() {
+    console.log('textarea blurred');
+    const textareaElem = event.target
+    // NOTE it is okay to ignore this error, we know better
+    // @ts-ignore
+    const updatedBody = textareaElem.value
+
+  }
 }

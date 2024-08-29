@@ -70,7 +70,8 @@ export class CaseFile {
       return `<p>${this.body}</p>`
     }
     else {
-      return `<textarea class="w-100">${this.body}</textarea>`
+      // NOTE onblur will fire off whenever this element is no longer focused (the user clicks outside of the textarea)
+      return `<textarea onblur="app.CaseFilesController.updateCaseFile()" class="w-100">${this.body}</textarea>`
     }
   }
 }
