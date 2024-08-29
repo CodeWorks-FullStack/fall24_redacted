@@ -26,11 +26,11 @@ export class CaseFile {
   }
 
   get detailsHTMLTemplate() {
-    return /*html*/`
+    return `
     <div class="p-3 border border-1 border-dark">
       <p class="fs-1" title="Full case #${this.id}">case #${this.caseFileNumber} ${this.agencyIcon}</p>
       <p>Last accessed on <time>${this.lastAccessedFullDateAndTime}</time></p>
-      <p>${this.body}</p>
+      ${this.bodyElement}
       <div class="text-end">
         <button onclick="app.CaseFilesController.toggleLock()">
           ${this.locked ? 'Unlock' : 'Lock'}
@@ -63,5 +63,14 @@ export class CaseFile {
 
   get lastAccessedFullDateAndTime() {
     return this.lastAccessedAt.toLocaleString()
+  }
+
+  get bodyElement() {
+    if (this.locked) {
+      return `<p>${this.body}</p>`
+    }
+    else {
+      return `<textarea class="w-100">${this.body}</textarea>`
+    }
   }
 }
