@@ -2,11 +2,11 @@ import { generateId } from "../utils/GenerateId.js";
 
 export class CaseFile {
   /**
-   * @param {{ body: String; classification: String; agency: String; }} data
+   * @param {{ body: String; classification: String; agency: String; lastAccessedAt?: String }} data
    */
   constructor(data) {
     this.id = generateId()
-    this.lastAccessedAt = new Date()
+    this.lastAccessedAt = data.lastAccessedAt == undefined ? new Date() : new Date(data.lastAccessedAt)
     this.body = data.body
     this.classification = data.classification
     this.agency = data.agency
