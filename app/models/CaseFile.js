@@ -26,11 +26,9 @@ export class CaseFile {
   get detailsHTMLTemplate() {
     return `
     <div class="p-3 border border-1 border-dark">
-      <p class="fs-1">case #${this.caseFileNumber} <i class="mdi mdi-fish"></i></p>
-      <p>Last accessed on 8/29/2024 10:35:00</p>
-      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit aliquid similique odio. Quis vitae non
-        nobis, animi maiores veniam minus maxime aspernatur numquam, laboriosam temporibus modi, sed velit ab?
-        Exercitationem soluta similique quisquam amet maiores aliquid debitis rem voluptatum consectetur.</p>
+      <p class="fs-1" title="Full case #${this.id}">case #${this.caseFileNumber} ${this.agencyIcon}</p>
+      <p>Last accessed on <time>${this.lastAccessedFullDateAndTime}</time></p>
+      <p>${this.body}</p>
     </div>
     `
   }
