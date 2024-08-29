@@ -7,9 +7,11 @@ class CaseFilesService {
     const caseFile = AppState.activeCaseFile
 
     caseFile.body = updatedBody
+    caseFile.lastAccessedAt = new Date()
     caseFile.locked = true
 
     AppState.emit('activeCaseFile') // this will manually trigger listener for activeCaseFile
+    AppState.emit('caseFiles')
     this.saveCaseFiles()
   }
   toggleLock() {
