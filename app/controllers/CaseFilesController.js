@@ -5,6 +5,9 @@ import { setHTML } from "../utils/Writer.js";
 export class CaseFilesController {
   constructor() {
     console.log('Case Files controller is working');
+    AppState.on('activeCaseFile', this.drawActiveCaseFile)
+
+
     this.drawCaseFiles()
   }
 
@@ -16,6 +19,10 @@ export class CaseFilesController {
     // caseFileElem.innerHTML = caseFileHTML
     // NOTE setHTML essentially does the above two lines
     setHTML('case-files-list', caseFileHTML)
+  }
+
+  drawActiveCaseFile() {
+    console.log('drawing active!');
   }
 
   setActiveCaseFile(caseFileId) {
