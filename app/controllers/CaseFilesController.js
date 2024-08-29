@@ -42,6 +42,7 @@ export class CaseFilesController {
     // NOTE it is okay to ignore this error, we know better
     // @ts-ignore
     const updatedBody = textareaElem.value
-
+    console.log('text from textarea', updatedBody);
+    caseFilesService.updateCaseFile(updatedBody)
   }
 }

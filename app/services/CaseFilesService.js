@@ -1,6 +1,14 @@
 import { AppState } from "../AppState.js";
 
 class CaseFilesService {
+  updateCaseFile(updatedBody) {
+    const caseFile = AppState.activeCaseFile
+
+    caseFile.body = updatedBody
+    caseFile.locked = true
+
+    AppState.emit('activeCaseFile') // this will manually trigger listener for activeCaseFile
+  }
   toggleLock() {
     const caseFile = AppState.activeCaseFile
 
